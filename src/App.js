@@ -5,6 +5,7 @@ import { Todos } from "./Components/Todos";
 import { Footer } from "./Components/Footer";
 import React, { useState, useEffect } from "react";
 import { About } from "./Components/About";
+import { Col, Container, Row } from 'react-bootstrap'
 import {
   BrowserRouter as Router,
   Routes,
@@ -71,11 +72,24 @@ function App() {
     <>
     <Router>
       <Header title = "My Todos List"/>
-
+      
       <Routes>
-      <Route exact path='/' element={<><AddTodo addTodo={addTodo}/> <Todos todos={todos} onDelete={onDelete}/></>}></Route> 
-          <Route exact path='/about' element={< About />}></Route> 
-        </Routes>
+      <Route exact path='/' element={
+      <>
+        <Container>
+          <Row>
+              <Col md={4}>
+              <AddTodo addTodo={addTodo}/>
+              </Col>
+              <Col md={8}>
+              <Todos todos={todos} onDelete={onDelete}/>
+              </Col>
+          </Row>
+        </Container>
+      </>}>
+      </Route> 
+      <Route exact path='/about' element={< About />}></Route> 
+      </Routes>
 
       <Footer />
     </Router>

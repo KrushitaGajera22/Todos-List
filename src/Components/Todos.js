@@ -3,11 +3,14 @@ import { TodoItem } from "../Components/TodoItem";
 
 export const Todos = (props) => {
   const style = {
-    minHeight: "51vh",
+    border: '1px solid lightgray',
+    borderRadius: '20px',
+    padding: '50px',
+    minHeight: '40vh'
   }
   return (
-    <div className='container' style={style}>
-      <h3 className='my-3'>Todos List</h3>
+    <div className='container my-3' style={style}>
+      <h3 className='text-center'>Todos List</h3>
       {props.todos.length === 0 ? "No Todos Available" : 
         props.todos.map((todo) =>{
           return (
